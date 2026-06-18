@@ -24,7 +24,7 @@ export function About() {
               <div className="relative overflow-hidden rounded-3xl glass">
                 <div className="relative aspect-[3/4]">
                   <Image
-                    src="/sridhar-portrait.jpeg"
+                    src="/sridhar_11.jpeg"
                     alt="Sridhar Kannusamy - Digital Marketing Strategist"
                     fill
                     className="object-cover object-top"
