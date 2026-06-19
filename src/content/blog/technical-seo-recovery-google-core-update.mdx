@@ -1,0 +1,160 @@
+export const metadata = {
+  title: "Technical SEO Recovery: How I Restored 85% Organic Traffic After a Google Core Update",
+  description:
+    "A complete technical SEO audit and recovery guide based on a real UK brand case study. Learn the exact fixes that recovered 85% of lost organic traffic in 8 weeks.",
+  date: "2025-05-22",
+  author: "Sridhar Kannusamy",
+  tags: ["SEO", "Technical SEO", "Google Core Update", "Traffic Recovery", "Case Study"],
+  category: "SEO Guides",
+  readTime: "11 min read",
+  featured: true,
+  coverImage: "/blog/seo-recovery.jpg",
+};
+
+# Technical SEO Recovery: How I Restored 85% Organic Traffic After a Google Core Update
+
+When a Google core update hits, most businesses panic. Their agency says "wait it out." Months pass. Traffic doesn't recover.
+
+That's exactly what happened to my UK client — until they called me.
+
+This is the full story of how I diagnosed and fixed the issues that caused a 60% traffic drop, and recovered 85% of it within 8 weeks.
+
+---
+
+## The Situation
+
+A UK-based wellness brand contacted me in a state of crisis. Three weeks after Google's core algorithm update, their organic traffic had dropped by 60%. Revenue from the organic channel collapsed.
+
+Their previous SEO agency's response? "Core updates are unpredictable. Give it 3–6 months."
+
+That's not an answer. That's an excuse.
+
+---
+
+## The Diagnosis: Full Technical SEO Audit
+
+My first action was a complete technical audit. I used a combination of Screaming Frog, Google Search Console, PageSpeed Insights, and manual analysis.
+
+Here's what I found:
+
+### Issue 1: Crawl Inefficiency (340+ Errors)
+The site had:
+- 127 broken internal links (404 errors)
+- 89 redirect chains (A → B → C instead of A → C)
+- 43 pages with duplicate title tags
+- Crawl budget being wasted on paginated URLs without canonicals
+
+**Priority: Critical**
+
+### Issue 2: Duplicate Content Crisis
+Multiple URL patterns were creating duplicate pages:
+- `example.com/product` and `example.com/product?sort=price` indexed as separate pages
+- Category pages with and without trailing slashes
+- HTTP and HTTPS versions of the same pages (yes, in 2024)
+
+**Priority: Critical**
+
+### Issue 3: Core Web Vitals Failure
+- LCP (Largest Contentful Paint): 4.8 seconds (Poor)
+- CLS (Cumulative Layout Shift): 0.34 (Poor)
+- FID: 280ms (Needs Improvement)
+
+The LCP was caused by an unoptimised hero image loading with no lazy loading and no WebP format.
+
+**Priority: High**
+
+### Issue 4: E-E-A-T Signals Missing
+After Google's helpful content updates, E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signals became more critical:
+- Author bios were missing from all blog posts
+- No credentials or qualifications mentioned
+- Product pages had no reviews schema
+- No "About the Brand" content demonstrating expertise
+
+**Priority: High**
+
+### Issue 5: Thin Content
+43 pages had fewer than 300 words. Google's helpful content system penalises low-value content that doesn't serve user intent.
+
+**Priority: Medium**
+
+---
+
+## The Recovery Plan: 8-Week Roadmap
+
+### Weeks 1–2: Critical Technical Fixes
+
+**Crawl Errors:**
+Fixed all 127 broken links. Updated redirect chains to single-hop redirects. Implemented proper pagination canonicals.
+
+**Duplicate Content:**
+Set canonical tags across all product and category pages. Resolved the HTTP/HTTPS duplication with 301 redirects. Standardised trailing slash policy and 301-redirected variants.
+
+### Weeks 3–4: Core Web Vitals
+
+**LCP Fix:**
+- Converted hero image to WebP format (57% file size reduction)
+- Added `priority` attribute to above-the-fold images
+- Implemented server-side rendering for LCP elements
+
+Result: LCP dropped from 4.8s → 1.9s
+
+**CLS Fix:**
+- Added explicit `width` and `height` attributes to all images
+- Fixed dynamic content that caused layout shifts
+
+**FID/INP Fix:**
+- Deferred non-critical JavaScript
+- Removed 3 unused analytics scripts
+
+### Weeks 5–6: Content & E-E-A-T
+
+**Author Profiles:**
+Added detailed author bios to all blog posts including credentials, expertise, and author image.
+
+**Schema Markup:**
+Implemented:
+- `Product` schema with reviews and ratings
+- `Organization` schema
+- `BreadcrumbList` schema
+- `Article` schema on blog posts
+
+**Content Enhancement:**
+Identified the 43 thin pages, expanded 20 priority pages to 800+ words with genuine useful content.
+
+### Weeks 7–8: Internal Linking Architecture
+
+Rebuilt the internal linking structure based on topical authority clusters. Every service/product page now has 5+ contextually relevant internal links from high-authority pages.
+
+This significantly improved PageRank distribution across the site.
+
+---
+
+## The Results at Week 8
+
+| Metric | Before | After (8 Weeks) |
+|--------|--------|-----------------|
+| Organic Traffic | -60% (post-update) | +85% recovery |
+| Core Web Vitals | Poor | Good |
+| Crawl Errors | 340+ | 0 |
+| First-Page Rankings | 11 | 33 |
+| Organic Revenue | Collapsed | Restored |
+
+---
+
+## Key Lessons for Your Website
+
+**1. Core updates are not random.** They target specific quality signals. Audit your content, E-E-A-T, and technical health immediately after an update.
+
+**2. Crawl budget matters more than you think.** If Google's bot wastes time on broken links and redirect chains, important pages get crawled less frequently.
+
+**3. Core Web Vitals are a ranking factor.** Not the most important one — but when your competitors are all similar in content quality, page experience becomes the tiebreaker.
+
+**4. E-E-A-T is not optional in 2025.** Who wrote this content? Why should I trust it? If your site can't answer those questions, you're vulnerable.
+
+---
+
+## Is Your Site at Risk?
+
+If your organic traffic has dropped and you're not sure why, I offer a Technical SEO Audit that covers all the areas above with prioritised recommendations.
+
+**Start with a free 30-minute consultation to see if an audit is right for your situation.**

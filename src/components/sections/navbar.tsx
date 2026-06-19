@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { MagneticLink } from "@/components/shared/magnetic-link";
@@ -21,9 +22,7 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
   return (
@@ -42,27 +41,38 @@ export function Navbar() {
               : "bg-transparent"
           )}
         >
-          <a href="#home" className="font-heading text-xl font-bold tracking-tight text-white">
+          <a href="/#home" className="font-heading text-xl font-bold tracking-tight text-white">
             {SITE.brand}
           </a>
 
           <div className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <MagneticLink
-                key={link.href}
-                href={link.href}
-                className="rounded-full px-4 py-2 text-sm text-white/70 transition-colors hover:text-white"
-              >
-                {link.label}
-              </MagneticLink>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isExternal = link.href.startsWith("/");
+              return isExternal ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full px-4 py-2 text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <MagneticLink
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full px-4 py-2 text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </MagneticLink>
+              );
+            })}
           </div>
 
           <div className="hidden lg:block">
             <Button asChild size="sm" className="bg-success hover:bg-success/90 glow-green">
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-4 w-4" />
-                Chat on WhatsApp
+                WhatsApp Me
               </a>
             </Button>
           </div>
@@ -87,23 +97,39 @@ export function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[90] flex flex-col items-center justify-center gap-6 bg-black/95 backdrop-blur-xl lg:hidden"
           >
-            {NAV_LINKS.map((link, i) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="font-heading text-2xl font-bold text-white"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </motion.a>
-            ))}
+            {NAV_LINKS.map((link, i) => {
+              const isExternal = link.href.startsWith("/");
+              return (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  {isExternal ? (
+                    <Link
+                      href={link.href}
+                      className="font-heading text-2xl font-bold text-white"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="font-heading text-2xl font-bold text-white"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </motion.div>
+              );
+            })}
             <Button asChild className="mt-4 bg-success hover:bg-success/90 glow-green">
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-4 w-4" />
-                Chat on WhatsApp
+                WhatsApp Me
               </a>
             </Button>
           </motion.div>

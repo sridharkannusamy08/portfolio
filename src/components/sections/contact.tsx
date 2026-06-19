@@ -16,15 +16,15 @@ export function Contact() {
         <ScrollReveal>
           <div className="text-center">
             <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
-              Get In Touch
+              Let&apos;s Talk Growth
             </p>
             <h2 className="font-heading text-3xl font-bold tracking-tighter text-white md:text-5xl">
-              Let&apos;s Build Your{" "}
-              <span className="gradient-text">Brand Together</span>
+              Start a Conversation,{" "}
+              <span className="gradient-text">Not a Sales Call</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/50">
-              No forms, no friction. Reach out directly on WhatsApp or email and let&apos;s discuss
-              how to grow your brand and generate qualified leads.
+              No pitch decks. No pressure. Tell me about your business and where you want to
+              grow — I&apos;ll tell you honestly if and how I can help.
             </p>
           </div>
         </ScrollReveal>

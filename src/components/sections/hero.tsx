@@ -1,21 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowUpRight, TrendingUp, DollarSign, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { SITE } from "@/lib/constants";
 
 const dashboardCards = [
-  { label: "SEO Performance", value: "+247%", sub: "Organic Traffic", icon: TrendingUp, color: "text-success" },
-  { label: "Meta Ads ROI", value: "3.2x", sub: "Return on Ad Spend", icon: BarChart3, color: "text-primary" },
-  { label: "Lead Generation", value: "1,840", sub: "Qualified Leads", icon: Users, color: "text-primary-light" },
+  {
+    label: "Peak ROAS Achieved",
+    value: "20X",
+    sub: "₹30K → ₹6L Revenue",
+    icon: TrendingUp,
+    color: "text-primary",
+  },
+  {
+    label: "Ad Spend Managed",
+    value: "₹7L+",
+    sub: "Across All Campaigns",
+    icon: DollarSign,
+    color: "text-success",
+  },
+  {
+    label: "Businesses Scaled",
+    value: "15+",
+    sub: "Across 8+ Industries",
+    icon: Users,
+    color: "text-primary-light",
+  },
 ];
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-screen section-padding pt-28 pb-16 lg:pt-32">
+    <section
+      id="home"
+      className="relative min-h-screen section-padding pt-28 pb-16 lg:pt-32"
+    >
+      {/* Background radial glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/8 blur-3xl" />
+      </div>
+
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-6">
           <motion.div
@@ -23,8 +49,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
-              Premium Brand Consulting
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              Growth Marketing Consultant
             </p>
             <h1 className="font-heading text-4xl font-bold leading-[1.05] tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               <span className="gradient-text">SRIDHAR</span>
@@ -37,20 +64,25 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-lg font-medium text-white/80 md:text-xl"
+            className="text-lg font-medium text-white/70 md:text-xl"
           >
-            Digital Marketing Strategist | Brand Consultant | Founder of {SITE.brand}
+            Performance Marketing Specialist · Business Growth Strategist ·
+            Founder of{" "}
+            <span className="text-primary font-bold">{SITE.brand}</span>
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="max-w-xl text-base leading-relaxed text-white/60 md:text-lg"
+            className="max-w-xl text-base leading-relaxed text-white/55 md:text-lg"
           >
-            I help businesses build memorable brands, generate qualified leads, and scale
-            profitably through strategic digital marketing, SEO, Meta ads, and conversion-focused
-            web design.
+            I build revenue systems for ambitious businesses — combining
+            performance marketing, SEO, and brand strategy to deliver
+            measurable, scalable growth.{" "}
+            <span className="text-white/80 font-medium">
+              Not impressions. Revenue.
+            </span>
           </motion.p>
 
           <motion.div
@@ -59,15 +91,19 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <Button asChild size="lg" className="bg-success hover:bg-success/90 glow-green">
+            <Button
+              asChild
+              size="lg"
+              className="bg-success hover:bg-success/90 glow-green"
+            >
               <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-5 w-5" />
-                Chat on WhatsApp
+                WhatsApp Me
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="#projects">View Case Studies</a>
+              <a href="#case-studies">View Case Studies</a>
             </Button>
           </motion.div>
 
@@ -75,16 +111,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-4 flex flex-wrap gap-6 border-t border-white/10 pt-6"
+            className="mt-4 flex flex-wrap gap-8 border-t border-white/10 pt-6"
           >
             {[
-              { value: "10+", label: "Brand Projects" },
-              { value: "5+", label: "Websites" },
-              { value: "Multiple", label: "Consulted" },
+              { value: "20X", label: "Peak ROAS" },
+              { value: "₹7L+", label: "Ad Spend Managed" },
+              { value: "15+", label: "Businesses Scaled" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-heading text-2xl font-bold text-white">{stat.value}</p>
-                <p className="text-sm text-white/50">{stat.label}</p>
+                <p className="font-heading text-2xl font-bold text-white">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-white/45">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -99,8 +137,12 @@ export function Hero() {
           <div className="relative rounded-3xl glass p-6 md:p-8">
             <div className="mb-6 flex items-center justify-between">
               <div>
-                <p className="text-xs uppercase tracking-wider text-white/40">Analytics Dashboard</p>
-                <p className="font-heading text-lg font-bold text-white">Performance Overview</p>
+                <p className="text-xs uppercase tracking-wider text-white/40">
+                  Live Results Dashboard
+                </p>
+                <p className="font-heading text-lg font-bold text-white">
+                  Client Performance
+                </p>
               </div>
               <div className="flex gap-1.5">
                 <div className="h-3 w-3 rounded-full bg-danger/80" />
@@ -123,7 +165,11 @@ export function Hero() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-xs text-white/50">{card.label}</p>
-                        <p className={`font-heading text-2xl font-bold ${card.color}`}>{card.value}</p>
+                        <p
+                          className={`font-heading text-2xl font-bold ${card.color}`}
+                        >
+                          {card.value}
+                        </p>
                         <p className="text-xs text-white/40">{card.sub}</p>
                       </div>
                       <div className="rounded-xl bg-white/5 p-3">
@@ -136,15 +182,17 @@ export function Hero() {
             </div>
 
             <div className="mt-4 flex items-end gap-1.5 px-2">
-              {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ height: 0 }}
-                  animate={{ height: `${h * 0.6}px` }}
-                  transition={{ delay: 0.8 + i * 0.05, duration: 0.5 }}
-                  className="flex-1 rounded-t-sm bg-gradient-to-t from-primary/20 to-primary"
-                />
-              ))}
+              {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map(
+                (h, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${h * 0.6}px` }}
+                    transition={{ delay: 0.8 + i * 0.05, duration: 0.5 }}
+                    className="flex-1 rounded-t-sm bg-gradient-to-t from-primary/20 to-primary"
+                  />
+                )
+              )}
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUp, Mail } from "lucide-react";
+import Link from "next/link";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { NAV_LINKS, SITE } from "@/lib/constants";
@@ -17,6 +18,9 @@ export function Footer() {
           <div>
             <p className="font-heading text-xl font-bold text-white">{SITE.brand}</p>
             <p className="mt-2 text-sm text-white/50">{SITE.tagline}</p>
+            <p className="mt-3 text-xs text-white/30 max-w-xs">
+              Growth Marketing Consulting for businesses serious about revenue, not vanity metrics.
+            </p>
           </div>
 
           <div>
@@ -24,15 +28,26 @@ export function Footer() {
               Navigation
             </p>
             <div className="flex flex-col gap-2">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-white/50 transition-colors hover:text-white"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const isExternal = link.href.startsWith("/");
+                return isExternal ? (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-white/50 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-white/50 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -67,6 +82,9 @@ export function Footer() {
                 <LinkedInIcon className="h-5 w-5" />
               </a>
             </div>
+            <p className="mt-4 text-xs text-white/30">
+              Based in India · Working Internationally
+            </p>
           </div>
         </div>
 
