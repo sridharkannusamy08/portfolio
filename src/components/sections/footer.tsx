@@ -2,6 +2,7 @@
 
 import { ArrowUp, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { NAV_LINKS, SITE } from "@/lib/constants";
@@ -16,7 +17,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <p className="font-heading text-xl font-bold text-white">{SITE.brand}</p>
+            <Image
+              src="/brandz-logo.png"
+              alt="BRANDZ Logo"
+              width={120}
+              height={40}
+              className="h-8 w-auto object-contain mb-3"
+            />
             <p className="mt-2 text-sm text-white/50">{SITE.tagline}</p>
             <p className="mt-3 text-xs text-white/30 max-w-xs">
               Growth Marketing Consulting for businesses serious about revenue, not vanity metrics.

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { MagneticLink } from "@/components/shared/magnetic-link";
@@ -41,8 +42,15 @@ export function Navbar() {
               : "bg-transparent"
           )}
         >
-          <a href="/#home" className="font-heading text-xl font-bold tracking-tight text-white">
-            {SITE.brand}
+          <a href="/#home" className="flex items-center">
+            <Image
+              src="/brandz-logo.png"
+              alt="BRANDZ Logo"
+              width={120}
+              height={40}
+              className="h-9 w-auto object-contain"
+              priority
+            />
           </a>
 
           <div className="hidden items-center gap-1 lg:flex">
